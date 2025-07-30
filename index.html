@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Proyectos Frontend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Mi Portafolio Frontend</h1>
+            <p>Proyectos y ejemplos de desarrollo web con JavaScript</p>
+        </header>
+
+        <div class="projects-grid">
+            <a href="Cases/TaskManager/index.html" target="_blank" class="project-card">
+                <span class="project-icon">📋</span>
+                <h3 class="project-title">Task Manager</h3>
+                <p class="project-description">
+                    Gestor de tareas con drag & drop, organizado en columnas de estado. 
+                    Permite crear, mover y completar tareas de forma interactiva.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Drag & Drop</span>
+                </div>
+                <span class="project-link">Ver proyecto →</span>
+            </a>
+
+            <a href="Cases/Navegacion/index.html" target="_blank" class="project-card">
+                <span class="project-icon">🎯</span>
+                <h3 class="project-title">Gestor de Tarjetas</h3>
+                <p class="project-description">
+                    Sistema de navegación DOM para gestionar tarjetas entre diferentes estados. 
+                    Practica manipulación avanzada del DOM con JavaScript.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">DOM</span>
+                    <span class="tech-tag">Navegación</span>
+                    <span class="tech-tag">Eventos</span>
+                </div>
+                <span class="project-link">Ver proyecto →</span>
+            </a>
+
+            <a href="Cases/ListaEditable/index.html" target="_blank" class="project-card">
+                <span class="project-icon">✏️</span>
+                <h3 class="project-title">Lista Editable</h3>
+                <p class="project-description">
+                    Lista de tareas completamente editable con manipulación dinámica del DOM. 
+                    Permite agregar, editar y eliminar elementos en tiempo real.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">DOM</span>
+                    <span class="tech-tag">Edición</span>
+                    <span class="tech-tag">Interactivo</span>
+                </div>
+                <span class="project-link">Ver proyecto →</span>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 - Desarrollado con ❤️ y JavaScript</p>
+        </footer>
+    </div>
+</body>
+</html> 
