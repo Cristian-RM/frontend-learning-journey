@@ -1,0 +1,334 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.texto-editable {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin: 20px 0;
+    min-height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.texto-editable:hover {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+}
+
+.controles {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cambiar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-cambiar:hover {
+    background-color: #0056b3;
+}
+
+.btn-color {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-color:hover {
+    background-color: #1e7e34;
+}
+
+.btn-tamano {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-tamano:hover {
+    background-color: #e0a800;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #c82333;
+}
+
+input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.info {
+    background-color: #e7f3ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #007bff;
+}
+
+.contador {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 20px 0;
+}
+
+/* ===========================================
+   ESTILOS PARA LA LISTA EDITABLE
+   =========================================== */
+
+.Lista {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.Lista h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.Lista ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-list {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #495057;
+    position: relative;
+}
+
+.item-list:hover {
+    background-color: #e3f2fd;
+    border-color: #007bff;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0,123,255,0.2);
+}
+
+.item-list:active {
+    transform: translateX(5px) scale(0.98);
+}
+
+.item-list.editando {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 2px rgba(255,193,7,0.3);
+}
+
+.item-list.editando::after {
+    content: "✏️ Editando...";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #856404;
+    font-style: italic;
+}
+
+/* Controles para la lista */
+.controles-lista {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-lista {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-editar-todos {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-editar-todos:hover {
+    background-color: #138496;
+}
+
+.btn-reset-lista {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-reset-lista:hover {
+    background-color: #5a6268;
+}
+
+.btn-agregar-item {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-agregar-item:hover {
+    background-color: #218838;
+}
+
+.btn-eliminar-item {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-eliminar-item:hover {
+    background-color: #c82333;
+}
+
+/* Input para editar */
+.input-editar {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #ffffff;
+    color: #495057;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.2);
+    transition: all 0.3s ease;
+    outline: none;
+    display: none;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.input-editar.visible {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.input-editar:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    background-color: #f8f9fa;
+}
+
+.input-editar:hover {
+    border-color: #0056b3;
+    box-shadow: 0 2px 12px rgba(0,123,255,0.3);
+}
+
+/* Animación de entrada del input */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estados especiales del input */
+.input-editar.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220,53,69,0.25);
+    background-color: #fff5f5;
+}
+
+.input-editar.success {
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40,167,69,0.25);
+    background-color: #f8fff9;
+}
+
+/* Placeholder del input */
+.input-editar::placeholder {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Input cuando está en modo edición */
+.item-list.editando .input-editar {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+}
+
+.item-list.editando .input-editar:focus {
+    border-color: #e0a800;
+    box-shadow: 0 0 0 3px rgba(255,193,7,0.25);
+    background-color: #ffffff;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.item-list {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Estados especiales */
+.item-list.completado {
+    background-color: #d4edda;
+    border-color: #28a745;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.item-list.importante {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    font-weight: bold;
+} 

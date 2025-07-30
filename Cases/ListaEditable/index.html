@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica DOM - JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Práctica de Manipulación del DOM</h1>
+        
+        <div class="info">
+            <strong>Instrucciones:</strong> Usa los botones y controles de abajo para modificar dinámicamente el contenido de esta página. 
+            ¡Practica cambiando texto, colores, tamaños y más!
+        </div>
+
+        <div class="contador" onclick="contadorClicks('contador-clicks')">
+            Clicks: <span id="contador-clicks">0</span>
+        </div>
+        <div class="Lista">
+            <h3>📝 Lista de Tareas Editables</h3>
+            <p style="text-align: center; color: #6c757d; margin-bottom: 15px;">
+                Haz clic en cualquier elemento para editarlo individualmente
+            </p>
+            
+            <div class="controles-lista">
+                <button class="btn-lista btn-reset-lista" onclick="resetearLista()">
+                    🔄 Resetear Lista
+                </button>
+                <button class="btn-lista btn-agregar-item" onclick="agregarNuevoItem()">
+                    ➕ Agregar Item
+                </button>
+               
+            </div>
+            
+            <ul id="lista_tareas" class="lista-tareas">
+            </ul>
+            
+            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #6c757d;">
+                💡 <strong>Reto 2:</strong> Usa getElementsByClassName() para manipular todos los elementos
+            </div>
+        </div>
+       
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task Manager</title>
+        <link rel="stylesheet" href="app.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="header__title">Task Manager</h1>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#tasks">Tasks</a></li>
+                    <li class="nav__item"><a href="#completed-tasks">Completed
+                            Tasks</a></li>
+                    <li class="nav__item"><a href="#settings">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="board_section" id="tasks">
+
+                <div class="section__column" id="new-tasks">
+                    <!--  Este es el form de añadir una nueva tarea -->
+                    <div id="Modal"></div>
+                    <!-- contenedor de tareas  -->
+                    <h2 class="column__title">New Tasks<button
+                            onclick="openTaskModal()">+</button></h2>
+
+                    <ul class="column__list" id="new-tasks-list"
+                        ondrop="dropHandler(event)"
+                        ondragover="event.preventDefault()">
+                        <li class="list__item">Task 1: Design the UI</li>
+                        <li class="list__item">Task 2: Implement the
+                            backend</li>
+                    </ul>
+                </div>
+
+                <div class="section__column">
+                    <h2 class="column__title">Current Tasks</h2>
+                    <ul class="column__list" id="progress-tasks-list"
+                        ondrop="dropHandler(event)"
+                        ondragover="event.preventDefault()">
+                        <li class="list__item">Task 1: Design the UI</li>
+                        <li class="list__item">Task 2: Implement the
+                            backend</li>
+                    </ul>
+                </div>
+
+                <div class="section__column">
+                    <h2 class="column__title">Completed Tasks</h2>
+                    <ul class="column__list" id="completed-tasks-list"
+                        ondrop="dropHandler(event)"
+                        ondragover="event.preventDefault()">
+                        <li class="list__item">Task 1: Design the UI</li>
+                        <li class="list__item">Task 2: Implement the
+                            backend</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section class="footer" id="settings">
+                <h2>Settings</h2>
+                <p>Configure your task manager preferences here.</p>
+            </section>
+        </main>
+
+        <script src="app.js"></script>
+        <script>
+            document.addEventListener('onload', () => {
+                    renderTasks();
+                });
+
+        </script>
+    </body>
+</html>

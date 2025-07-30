@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación DOM - Gestor de Tarjetas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎯 Gestor de Tarjetas - Navegación DOM</h1>
+            <p class="subtitle">Practica navegación entre elementos padre, hijo y hermanos</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="total-cards">0</span>
+                    <span class="stat-label">Tarjetas Totales</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="active-cards">0</span>
+                    <span class="stat-label">Tarjetas Activas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="completed-cards">0</span>
+                    <span class="stat-label">Completadas</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="agregarNuevaTarjeta()">
+                    ➕ Agregar Tarjeta
+                </button>
+                <button class="btn btn-secondary" onclick="moverPrimeraTarjetaAlFinal()">
+                    🔄 Mover Primera al Final
+                </button>
+                <button class="btn btn-warning" onclick="intercambiarTarjetasExtremas()">
+                    🔀 Intercambiar Extremos
+                </button>
+                <button class="btn btn-danger" onclick="eliminarTarjetasCompletadas()">
+                    🗑️ Eliminar Completadas
+                </button>
+            </div>
+        </div>
+
+        <div class="board">
+            <div class="column">
+                <h3 class="column-title">📋 Pendientes</h3>
+                <div class="cards-container" id="pendientes">
+                    <div class="card" data-status="pendiente">
+                        <div class="card-header">
+                            <h4 class="card-title">Estudiar JavaScript</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon" onclick="moverTarjeta(this)">📤</button>
+                                <button class="btn-icon" onclick="eliminarTarjeta(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <p class="card-description">Aprender navegación DOM y manipulación de elementos</p>
+                        <div class="card-footer">
+                            <span class="card-priority alta">Alta</span>
+                            <button class="btn-complete" onclick="completarTarjeta(this)">✅ Completar</button>
+                        </div>
+                    </div>
+
+                    <div class="card" data-status="pendiente">
+                        <div class="card-header">
+                            <h4 class="card-title">Crear Proyecto</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon" onclick="moverTarjeta(this)">📤</button>
+                                <button class="btn-icon" onclick="eliminarTarjeta(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <p class="card-description">Desarrollar aplicación con navegación DOM</p>
+                        <div class="card-footer">
+                            <span class="card-priority media">Media</span>
+                            <button class="btn-complete" onclick="completarTarjeta(this)">✅ Completar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3 class="column-title">🔄 En Progreso</h3>
+                <div class="cards-container" id="en-progreso">
+                    <div class="card" data-status="progreso">
+                        <div class="card-header">
+                            <h4 class="card-title">Revisar Código</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon" onclick="moverTarjeta(this)">📤</button>
+                                <button class="btn-icon" onclick="eliminarTarjeta(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <p class="card-description">Optimizar funciones de navegación</p>
+                        <div class="card-footer">
+                            <span class="card-priority baja">Baja</span>
+                            <button class="btn-complete" onclick="completarTarjeta(this)">✅ Completar</button>
+                        </div>
+                    </div>
+                    <div class="card" data-status="progreso">
+                        <div class="card-header">
+                            <h4 class="card-title">Revisar Código</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon" onclick="moverTarjeta(this)">📤</button>
+                                <button class="btn-icon" onclick="eliminarTarjeta(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <p class="card-description">Optimizar funciones de navegación</p>
+                        <div class="card-footer">
+                            <span class="card-priority baja">Baja</span>
+                            <button class="btn-complete" onclick="completarTarjeta(this)">✅ Completar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3 class="column-title">✅ Completadas</h3>
+                <div class="cards-container" id="completadas">
+                    <div class="card completada" data-status="completada">
+                        <div class="card-header">
+                            <h4 class="card-title">Configurar Entorno</h4>
+                            <div class="card-actions">
+                                <button class="btn-icon" onclick="moverTarjeta(this)">📤</button>
+                                <button class="btn-icon" onclick="eliminarTarjeta(this)">🗑️</button>
+                            </div>
+                        </div>
+                        <p class="card-description">Preparar herramientas de desarrollo</p>
+                        <div class="card-footer">
+                            <span class="card-priority media">Media</span>
+                            <span class="completion-date">Completada: Hoy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instrucciones de Navegación DOM</h3>
+            <div class="instruction-grid">
+                <div class="instruction-card">
+                    <h4>Reto 1: Navegación Básica</h4>
+                    <p>Implementa <code>agregarNuevaTarjeta()</code> que:</p>
+                    <ul>
+                        <li>Navegue al contenedor de pendientes</li>
+                        <li>Encuentre el primer elemento hijo</li>
+                        <li>Inserte la nueva tarjeta después del primer elemento</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>Reto 2: Navegación entre Hermanos</h4>
+                    <p>Implementa <code>moverPrimeraTarjetaAlFinal()</code> que:</p>
+                    <ul>
+                        <li>Encuentre la primera tarjeta en pendientes</li>
+                        <li>Navegue al último hermano del contenedor</li>
+                        <li>Mueva la tarjeta al final de completadas</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>Reto 3: Navegación Compleja</h4>
+                    <p>Implementa <code>intercambiarTarjetasExtremas()</code> que:</p>
+                    <ul>
+                        <li>Encuentre la primera tarjeta de pendientes</li>
+                        <li>Encuentre la última tarjeta de completadas</li>
+                        <li>Intercambie sus posiciones</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>Reto 4: Navegación Condicional</h4>
+                    <p>Implementa <code>eliminarTarjetasCompletadas()</code> que:</p>
+                    <ul>
+                        <li>Navegue por todos los hijos del contenedor completadas</li>
+                        <li>Encuentre elementos con clase 'completada'</li>
+                        <li>Elimine cada tarjeta completada</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>Reto 5: Navegación desde Eventos</h4>
+                    <p>Implementa <code>moverTarjeta(button)</code> que:</p>
+                    <ul>
+                        <li>Desde el botón, navegue al padre (tarjeta)</li>
+                        <li>Encuentre el contenedor padre</li>
+                        <li>Mueva la tarjeta al siguiente contenedor</li>
+                    </ul>
+                </div>
+
+                <div class="instruction-card">
+                    <h4>Reto 6: Navegación Avanzada</h4>
+                    <p>Implementa <code>completarTarjeta(button)</code> que:</p>
+                    <ul>
+                        <li>Desde el botón, navegue a la tarjeta padre</li>
+                        <li>Encuentre el contenedor actual</li>
+                        <li>Mueva la tarjeta al contenedor de completadas</li>
+                        <li>Actualice el estado y estadísticas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
